@@ -1,0 +1,358 @@
+###############################################################################
+#
+# IAR ELF Linker V8.30.1.114/W32 for ARM                  17/Jun/2025  09:58:13
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Exe\Example.out
+#    Map file     =  
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\List\Example.map
+#    Command line =  
+#        -f C:\Users\nouriP\AppData\Local\Temp\EW8071.tmp
+#        (C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\axs15231.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm25qxx_dual.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm25qxx_qpi.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm25qxx_quad.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm25qxx_single.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_adc.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_atim.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_bstim16.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_canfd.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_clm.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_cmu.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_comp.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_crc.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_dac.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_dma.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_exti.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_flash.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_gpio.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_i2c.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_iwdt.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_lptim16.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_lpuart.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_pmu.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_qspi.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_rtc.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_sent.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_spi.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_svd.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_tau.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_uart.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\fm33fh0xx_fl_wwdt.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\main.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\mf_config.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\qspi.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\startup_fm33fh0xx.o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj\system_fm33fh0xx.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Exe\Example.out
+#        --map
+#        C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\List\Example.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.1\arm\config\linker\FMSH\FM33FH05x.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x5'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 0M, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address   Size  Object
+  -------            ----         -------   ----  ------
+"A0":                                       0xc0
+  .intvec            ro code          0x0   0xc0  startup_fm33fh0xx.o [1]
+                                   - 0xc0   0xc0
+
+"P1":                                      0xc96
+  .text              ro code         0xc0  0x2f4  system_fm33fh0xx.o [1]
+  .text              ro code        0x3b4   0xae  I32DivModFast.o [3]
+  .text              ro code        0x462    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0x464    0x2  IntDivZer.o [3]
+  .text              ro code        0x466    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0x468  0x2d4  fm33fh0xx_fl_gpio.o [1]
+  .text              ro code        0x73c  0x1d0  fm33fh0xx_fl_qspi.o [1]
+  .text              ro code        0x90c  0x15e  axs15231.o [1]
+  .text              ro code        0xa6a    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xa6c   0x32  ABImemset.o [3]
+  .text              ro code        0xa9e    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xaa0  0x130  qspi.o [1]
+  .text              ro code        0xbd0   0x36  main.o [1]
+  .text              ro code        0xc06    0x6  mf_config.o [1]
+  .text              ro code        0xc0c   0x20  fm33fh0xx_fl.o [1]
+  .text              ro code        0xc2c   0x10  fm33fh0xx_fl_iwdt.o [1]
+  .text              ro code        0xc3c   0x30  copy_init3.o [3]
+  .text              ro code        0xc6c   0x28  data_init.o [3]
+  .iar.init_table    const          0xc94   0x14  - Linker created -
+  .text              ro code        0xca8   0x1e  cmain.o [3]
+  .text              ro code        0xcc6    0x4  low_level_init.o [2]
+  .text              ro code        0xcca    0x8  exit.o [2]
+  .text              ro code        0xcd2    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xcd4    0xa  cexit.o [3]
+  .text              ro code        0xcde    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xce0   0x14  exit.o [4]
+  .text              ro code        0xcf4   0x10  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd04    0xc  cstartup_M.o [3]
+  Initializer bytes  const          0xd10    0x8  <for P2-1>
+  .text              ro code        0xd18    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd1a    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd1c    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd1e    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd20    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd22    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd24    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd26    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd28    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd2a    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd2c    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd2e    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd30    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd32    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd34    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd36    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd38    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd3a    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd3c    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd3e    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd40    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd42    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd44    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd46    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd48    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd4a    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd4c    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd4e    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd50    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd52    0x2  startup_fm33fh0xx.o [1]
+  .text              ro code        0xd54    0x2  startup_fm33fh0xx.o [1]
+  .rodata            const          0xd56    0x0  copy_init3.o [3]
+                                  - 0xd56  0xc96
+
+"P2", part 1 of 2:                           0x8
+  P2-1                        0x2000'0000    0x8  <Init block>
+    .data            inited   0x2000'0000    0x4  system_fm33fh0xx.o [1]
+    .data            inited   0x2000'0004    0x4  system_fm33fh0xx.o [1]
+                            - 0x2000'0008    0x8
+
+"P2", part 2 of 2:                         0x800
+  CSTACK                      0x2000'0008  0x800  <Block>
+    CSTACK           uninit   0x2000'0008  0x800  <Block tail>
+                            - 0x2000'0808  0x800
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0xd56     0x5'ffff  0x5'f2aa
+  0x2000'0808  0x2000'7fff    0x77f8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8:
+                0xd10   0x8
+    1 destination range, total size 0x8:
+          0x2000'0000   0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module               ro code  ro data  rw data
+    ------               -------  -------  -------
+command line/config:
+    ----------------------------------------------
+    Total:
+
+C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj: [1]
+    axs15231.o               350
+    fm33fh0xx_fl.o            32
+    fm33fh0xx_fl_gpio.o      724
+    fm33fh0xx_fl_iwdt.o       16
+    fm33fh0xx_fl_qspi.o      464
+    main.o                    54
+    mf_config.o                6
+    qspi.o                   304
+    startup_fm33fh0xx.o      282
+    system_fm33fh0xx.o       756        8        8
+    ----------------------------------------------
+    Total:                 2 988        8        8
+
+dl6M_tlf.a: [2]
+    exit.o                     8
+    low_level_init.o           4
+    ----------------------------------------------
+    Total:                    12
+
+rt6M_tl.a: [3]
+    ABImemset.o               50
+    I32DivModFast.o          174
+    IntDivZer.o                2
+    cexit.o                   10
+    cmain.o                   30
+    copy_init3.o              48
+    cstartup_M.o              12
+    data_init.o               40
+    ----------------------------------------------
+    Total:                   366
+
+shb_l.a: [4]
+    exit.o                    20
+    ----------------------------------------------
+    Total:                    20
+
+    Linker created                     20    2 048
+--------------------------------------------------
+    Grand Total:           3 386       28    2 056
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xc94          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xca8          --   Gb  - Linker created -
+?main                         0xca9         Code  Gb  cmain.o [3]
+AXS15231_FillRed              0xa47   0x24  Code  Gb  axs15231.o [1]
+AXS15231_QSPI_Init            0x9a7   0x36  Code  Gb  axs15231.o [1]
+AXS15231_SetWindow            0x9f3   0x54  Code  Gb  axs15231.o [1]
+AXS15231_WriteData            0x9e5    0xe  Code  Gb  axs15231.o [1]
+CSTACK$$Base            0x2000'0008          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0808          --   Gb  - Linker created -
+FL_CMU_EnableGroup1BusClock
+                              0x469    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_CMU_EnableGroup3BusClock
+                              0x73d    0xa  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_GPIO_DisablePinInput
+                              0x47d    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_DisablePinOpenDrain
+                              0x4b9    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_DisablePinPullDown
+                              0x491    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_DisablePinPullUp
+                              0x4a5    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_EnablePinInput        0x473    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_EnablePinOpenDrain
+                              0x4af    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_EnablePinPullDown
+                              0x487    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_EnablePinPullUp
+                              0x49b    0xa  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_Init                  0x51d  0x1fe  Code  Gb  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_ResetOutputPin        0x92b    0xa  Code  Lc  axs15231.o [1]
+FL_GPIO_SetOutputPin          0x921    0xa  Code  Lc  axs15231.o [1]
+FL_GPIO_SetPinDriveStrength
+                              0x4fb   0x1c  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_SetPinMode            0x4c3   0x1c  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_GPIO_SetPinRemap           0x4df   0x1c  Code  Lc  fm33fh0xx_fl_gpio.o [1]
+FL_Init                       0xc0d    0x8  Code  Gb  fm33fh0xx_fl.o [1]
+FL_QSPI_DisableDelayedSampling
+                              0x76b    0xa  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_Enable                0x917    0xa  Code  Lc  axs15231.o [1]
+FL_QSPI_Enable                0xaab    0xa  Code  Lc  qspi.o [1]
+FL_QSPI_EnableABORT           0x90d    0xa  Code  Lc  axs15231.o [1]
+FL_QSPI_EnableABORT           0xaa1    0xa  Code  Lc  qspi.o [1]
+FL_QSPI_EnableDelayedSampling
+                              0x761    0xa  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_Init                  0x78d  0x16e  Code  Gb  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_IsActiveFlag_Busy
+                              0xab5    0xc  Code  Lc  qspi.o [1]
+FL_QSPI_SetCSHoldTime         0x775    0xc  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_SetClockMode          0x781    0xc  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_SetFIFOLevel          0x755    0xc  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_WriteAddress          0xac7    0x6  Code  Lc  qspi.o [1]
+FL_QSPI_WriteAlternateBytes
+                              0xacd    0x6  Code  Lc  qspi.o [1]
+FL_QSPI_WriteClockPrescaler
+                              0x747    0xe  Code  Lc  fm33fh0xx_fl_qspi.o [1]
+FL_QSPI_WriteDataLength
+                              0xac1    0x6  Code  Lc  qspi.o [1]
+IWDT_Clr                      0xc2d    0x8  Code  Gb  fm33fh0xx_fl_iwdt.o [1]
+MF_Clock_Init                 0xc07    0x2  Code  Gb  mf_config.o [1]
+MF_Config_Init                0xc0b    0x2  Code  Gb  mf_config.o [1]
+MF_SystemClock_Config         0xc09    0x2  Code  Gb  mf_config.o [1]
+QSPI_BlockWrite               0x935   0x72  Code  Lc  axs15231.o [1]
+QSPI_DR_WriteByte             0xb49    0x6  Code  Lc  qspi.o [1]
+QSpiInit                      0xad3   0x76  Code  Gb  qspi.o [1]
+QSpiWriteData                 0xb4f   0x70  Code  Gb  qspi.o [1]
+Region$$Table$$Base           0xc94          --   Gb  - Linker created -
+Region$$Table$$Limit          0xca8          --   Gb  - Linker created -
+SystemCoreClock         0x2000'0004    0x4  Data  Gb  system_fm33fh0xx.o [1]
+SystemCoreClockUpdate         0x169  0x10a  Code  Gb  system_fm33fh0xx.o [1]
+SystemInit                    0x28d   0xc6  Code  Gb  system_fm33fh0xx.o [1]
+SystemPLLClockUpdate           0xc1   0xa8  Code  Lc  system_fm33fh0xx.o [1]
+XTHFClock               0x2000'0000    0x4  Data  Gb  system_fm33fh0xx.o [1]
+__ICFEDIT_region_RAM_end__ {Abs}
+                        0x2000'7fff         Data  Gb  <internal module>
+__ICFEDIT_region_RAM_start__ {Abs}
+                        0x2000'0000         Data  Gb  <internal module>
+__aeabi_idiv0                 0x465         Code  Gb  IntDivZer.o [3]
+__aeabi_memclr4               0xa6d         Code  Gb  ABImemset.o [3]
+__aeabi_memclr8               0xa6d         Code  Gb  ABImemset.o [3]
+__aeabi_uidiv                 0x3b5         Code  Gb  I32DivModFast.o [3]
+__aeabi_uidivmod              0x3b5         Code  Gb  I32DivModFast.o [3]
+__cmain                       0xca9         Code  Gb  cmain.o [3]
+__exit                        0xce1   0x14  Code  Gb  exit.o [4]
+__iar_Memset4_word            0xa71         Code  Gb  ABImemset.o [3]
+__iar_copy_init3              0xc3d   0x30  Code  Gb  copy_init3.o [3]
+__iar_data_init3              0xc6d   0x28  Code  Gb  data_init.o [3]
+__iar_program_start           0xd05         Code  Gb  cstartup_M.o [3]
+__low_level_init              0xcc7    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  startup_fm33fh0xx.o [1]
+_call_main                    0xcb5         Code  Gb  cmain.o [3]
+_exit                         0xcd5         Code  Gb  cexit.o [3]
+_main                         0xcc3         Code  Gb  cmain.o [3]
+exit                          0xccb    0x8  Code  Gb  exit.o [2]
+main                          0xbd1   0x36  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\nouriP\Downloads\FM33FH0XX_DEMO_IAR+V1.02\QSPI_QPI\EWARM\Example\Obj
+[2] = dl6M_tlf.a
+[3] = rt6M_tl.a
+[4] = shb_l.a
+
+  3 386 bytes of readonly  code memory
+     28 bytes of readonly  data memory
+  2 056 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

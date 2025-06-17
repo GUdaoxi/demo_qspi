@@ -14,6 +14,9 @@
 #define TFT_CMD_CASET       0x2A
 #define TFT_CMD_RASET       0x2B
 #define TFT_CMD_RAMWR       0x2C
+// Quad SPI memory write command used by AXS15231B when transferring data over
+// four data lines
+#define TFT_CMD_RAMWR4      0x32
 
 /* MADCTL 参数位 */
 #define MADCTL_MX           0x40
@@ -37,4 +40,4 @@ void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 // Fill a number of pixels with red (count = width*height)
 void AXS15231_FillRed(uint32_t count);
 
-#endif  
+#endif

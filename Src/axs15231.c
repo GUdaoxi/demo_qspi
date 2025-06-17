@@ -7,6 +7,10 @@
 #ifndef AXS15231_CMD_WRITE_DATA
 #define AXS15231_CMD_WRITE_DATA      0x2C
 #endif
+// Quad SPI memory write command (four data lines)
+#ifndef AXS15231_CMD_WRITE_DATA_QUAD
+#define AXS15231_CMD_WRITE_DATA_QUAD 0x32
+#endif
 #ifndef AXS15231_CMD_SET_COLUMN
 #define AXS15231_CMD_SET_COLUMN      0x2A
 #endif
@@ -51,7 +55,9 @@ static void QSPI_BlockWrite(uint8_t instruction, const uint8_t* data, uint32_t l
     // 配置 QSPI 命令结构
     cmd.Instruction        = instruction;
     cmd.InstructionMode    = FL_QSPI_IMODE_SINGLE;
-    cmd.AddressMode        = length ? FL_QSPI_AD_MODE_FOUR : FL_QSPI_AD_MODE_NONE;
+    /* When writing commands or data the AXS15231 does not require
+       an address phase, therefore always disable the address phase. */
+    cmd.AddressMode        = FL_QSPI_AD_MODE_NONE;
     cmd.AddressSize        = FL_QSPI_AD_SIZE_24bits;
     cmd.Address            = 0x000000;
     cmd.AlternateByteMode  = FL_QSPI_AB_MODE_NONE;
@@ -87,7 +93,8 @@ void AXS15231_WriteCommand(uint8_t cmd)
 
 void AXS15231_WriteData(uint8_t data)
 {
-    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA, &data, 1);
+    /* Use the quad write command when sending pixel data over QSPI */
+    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA_QUAD, &data, 1);
 }
 
 void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)

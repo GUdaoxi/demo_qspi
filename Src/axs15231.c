@@ -7,6 +7,10 @@
 #ifndef AXS15231_CMD_WRITE_DATA
 #define AXS15231_CMD_WRITE_DATA      0x2C
 #endif
+#ifndef AXS15231_CMD_WRITE_DATA_DUAL
+// Dual SPI memory write command (two data lines)
+#define AXS15231_CMD_WRITE_DATA_DUAL 0x12
+#endif
 #ifndef AXS15231_CMD_SET_COLUMN
 #define AXS15231_CMD_SET_COLUMN      0x2A
 #endif
@@ -51,14 +55,17 @@ static void QSPI_BlockWrite(uint8_t instruction, const uint8_t* data, uint32_t l
     // 配置 QSPI 命令结构
     cmd.Instruction        = instruction;
     cmd.InstructionMode    = FL_QSPI_IMODE_SINGLE;
-    cmd.AddressMode        = length ? FL_QSPI_AD_MODE_FOUR : FL_QSPI_AD_MODE_NONE;
+    /* When writing commands or data the AXS15231 does not require
+       an address phase, therefore always disable the address phase. */
+    cmd.AddressMode        = FL_QSPI_AD_MODE_NONE;
     cmd.AddressSize        = FL_QSPI_AD_SIZE_24bits;
     cmd.Address            = 0x000000;
     cmd.AlternateByteMode  = FL_QSPI_AB_MODE_NONE;
     cmd.AlternateByteSize  = FL_QSPI_AB_SIZE_8bits;
     cmd.AlternateByte      = 0;
     cmd.DummyCycles        = 0;
-    cmd.DataMode           = length ? FL_QSPI_DATA_MODE_FOUR : FL_QSPI_DATA_MODE_NONE;
+    /* Use two data lines for pixel transfers */
+    cmd.DataMode           = length ? FL_QSPI_DATA_MODE_DOUBLE : FL_QSPI_DATA_MODE_NONE;
     cmd.DataLen            = length;
 
     TFT_CS_L();
@@ -87,7 +94,8 @@ void AXS15231_WriteCommand(uint8_t cmd)
 
 void AXS15231_WriteData(uint8_t data)
 {
-    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA, &data, 1);
+    /* Use the dual write command when sending pixel data over QSPI */
+    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA_DUAL, &data, 1);
 }
 
 void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)

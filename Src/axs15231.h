@@ -14,6 +14,8 @@
 #define TFT_CMD_CASET       0x2A
 #define TFT_CMD_RASET       0x2B
 #define TFT_CMD_RAMWR       0x2C
+// Dual SPI memory write command used when transferring data over two data lines
+#define TFT_CMD_RAMWR2      0x12
 
 /* MADCTL 参数位 */
 #define MADCTL_MX           0x40
@@ -37,4 +39,4 @@ void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 // Fill a number of pixels with red (count = width*height)
 void AXS15231_FillRed(uint32_t count);
 
-#endif  
+#endif

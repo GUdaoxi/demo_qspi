@@ -17,30 +17,9 @@
 #define AXS15231_RED                 0xF800    // RGB565 红色
 #endif
 
-//#ifndef FL_QSPI_INSTRUCTION_1_LINE
-//#define FL_QSPI_INSTRUCTION_1_LINE   FL_QSPI_IMODE_SINGLE
-//#endif
-//#ifndef FL_QSPI_ADDRESS_0_LINE
-//#define FL_QSPI_ADDRESS_0_LINE       FL_QSPI_ADMODE_NONE
-//#endif
-//#ifndef FL_QSPI_ADDRESS_4_LINE
-//#define FL_QSPI_ADDRESS_4_LINE       FL_QSPI_AD_MODE_FOUR
-//#endif
-
-//#ifndef FL_QSPI_DATA_4_LINE
-//#define FL_QSPI_DATA_4_LINE          FL_QSPI_DATA_MODE_FOUR
-//#endif
-//#ifndef FL_QSPI_IsActiveFlag_TC
-//#define FL_QSPI_IsActiveFlag_TC      FL_QSPI_IsActiveFlag_TransferComplete
-//#endif
-//#ifndef FL_QSPI_ClearFlag_TC
-//#define FL_QSPI_ClearFlag_TC         FL_QSPI_ClearFlag_TransferComplete
-//#endif
-
-// 定义 QSPI 外设实例
+#define AXS15231_CMD_WRITE_DATA_DUAL 0x12
 #define AXS_QSPI                    QSPI
 
-//PC8 片选
 #define TFT_CS_H()    FL_GPIO_SetOutputPin(GPIOC, FL_GPIO_PIN_8)
 #define TFT_CS_L()    FL_GPIO_ResetOutputPin(GPIOC, FL_GPIO_PIN_8)
 
@@ -58,11 +37,12 @@ static void QSPI_BlockWrite(uint8_t instruction, const uint8_t* data, uint32_t l
     cmd.AlternateByteSize  = FL_QSPI_AB_SIZE_8bits;
     cmd.AlternateByte      = 0;
     cmd.DummyCycles        = 0;
-    cmd.DataMode           = length ? FL_QSPI_DATA_MODE_FOUR : FL_QSPI_DATA_MODE_NONE;
+    //cmd.DataMode           = length ? FL_QSPI_DATA_MODE_FOUR : FL_QSPI_DATA_MODE_NONE;
+        cmd.DataMode           = length ? FL_QSPI_DATA_MODE_DOUBLE : FL_QSPI_DATA_MODE_NONE;
     cmd.DataLen            = length;
 
     TFT_CS_L();
-    FL_QSPI_EnableABORT(QSPI); // 强制清除 BUSY 状态
+    FL_QSPI_EnableABORT(QSPI); 
     QSpiWriteData(&cmd, (uint8_t*)data, length);
     TFT_CS_H();
 }
@@ -87,7 +67,8 @@ void AXS15231_WriteCommand(uint8_t cmd)
 
 void AXS15231_WriteData(uint8_t data)
 {
-    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA, &data, 1);
+   // QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA, &data, 1);
+    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA_DUAL, &data, 1);
 }
 
 void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)

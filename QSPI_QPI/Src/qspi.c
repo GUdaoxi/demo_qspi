@@ -20,13 +20,21 @@ void QSpiInit(void)
     GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
     (void)FL_GPIO_Init(GPIOC, &GPIO_InitStruct);
     
-    GPIO_InitStruct.pin           = FL_GPIO_PIN_10|FL_GPIO_PIN_11;
+    GPIO_InitStruct.pin           = FL_GPIO_PIN_11;
     GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
     GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
     GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
-    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON1;
+    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON2;
     GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
-    (void)FL_GPIO_Init(GPIOC, &GPIO_InitStruct);    
+    (void)FL_GPIO_Init(GPIOB, &GPIO_InitStruct);    
+    
+    GPIO_InitStruct.pin           = FL_GPIO_PIN_10;
+    GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
+    GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
+    GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
+    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON0;
+    GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
+    (void)FL_GPIO_Init(GPIOB, &GPIO_InitStruct);    
     
     QSPI_Init.ClockPrescaler     = 2-1;
     QSPI_Init.FifoThreshold      = FL_QSPI_FIFOTHR_8;

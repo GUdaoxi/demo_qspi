@@ -7,9 +7,9 @@
 #ifndef AXS15231_CMD_WRITE_DATA
 #define AXS15231_CMD_WRITE_DATA      0x2C
 #endif
-// Quad SPI memory write command (four data lines)
-#ifndef AXS15231_CMD_WRITE_DATA_QUAD
-#define AXS15231_CMD_WRITE_DATA_QUAD 0x32
+#ifndef AXS15231_CMD_WRITE_DATA_DUAL
+// Dual SPI memory write command (two data lines)
+#define AXS15231_CMD_WRITE_DATA_DUAL 0x12
 #endif
 #ifndef AXS15231_CMD_SET_COLUMN
 #define AXS15231_CMD_SET_COLUMN      0x2A
@@ -64,7 +64,8 @@ static void QSPI_BlockWrite(uint8_t instruction, const uint8_t* data, uint32_t l
     cmd.AlternateByteSize  = FL_QSPI_AB_SIZE_8bits;
     cmd.AlternateByte      = 0;
     cmd.DummyCycles        = 0;
-    cmd.DataMode           = length ? FL_QSPI_DATA_MODE_FOUR : FL_QSPI_DATA_MODE_NONE;
+    /* Use two data lines for pixel transfers */
+    cmd.DataMode           = length ? FL_QSPI_DATA_MODE_DOUBLE : FL_QSPI_DATA_MODE_NONE;
     cmd.DataLen            = length;
 
     TFT_CS_L();
@@ -93,8 +94,8 @@ void AXS15231_WriteCommand(uint8_t cmd)
 
 void AXS15231_WriteData(uint8_t data)
 {
-    /* Use the quad write command when sending pixel data over QSPI */
-    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA_QUAD, &data, 1);
+    /* Use the dual write command when sending pixel data over QSPI */
+    QSPI_BlockWrite(AXS15231_CMD_WRITE_DATA_DUAL, &data, 1);
 }
 
 void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)

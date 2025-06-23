@@ -7,6 +7,23 @@
 // QSPI_DQ2：PC12 || PB12
 // QSPI_DQ3：PC13 || PB13
 
+void LCD_NRST_Init(void)
+{
+    FL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    GPIO_InitStruct.pin           = FL_GPIO_PIN_8;
+    GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
+    GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
+    GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
+    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON0;
+    GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
+    (void)FL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    FL_GPIO_ResetOutputPin(GPIOB, FL_GPIO_PIN_8);
+    FL_DelayMs(10);
+    FL_GPIO_SetOutputPin(GPIOB, FL_GPIO_PIN_8);
+}
+
 void QSpiInit(void)
 {
     FL_GPIO_InitTypeDef    GPIO_InitStruct={0};

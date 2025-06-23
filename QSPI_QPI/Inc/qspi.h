@@ -56,6 +56,7 @@
 #define CMD_FM25Q_EnableQPI               0x38
 #define CMD_FM25Q_DisableQPI              0xFF
 
+void LCD_NRST_Init(void);
 void QSpiInit(void);
 void QSpiDeInit(void);
 bool QSpiWriteData(QSPI_CmdTypeDef *Cmd, uint8_t *data, uint16_t length);

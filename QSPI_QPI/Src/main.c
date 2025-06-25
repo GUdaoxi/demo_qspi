@@ -1,6 +1,7 @@
 #include "main.h"
 #include "fm33fh0xx_fl.h"
 #include "qspi.h"
+#include "axs15231.h"
 #include "fm25qxx_single.h"
 #include "fm25qxx_dual.h"
 #include "fm25qxx_quad.h"
@@ -31,6 +32,23 @@ uint8_t wBuff[256] = {
 uint8_t rBuff1[256];
 uint8_t rBuff2[256];
 
+static void LCD_NRST_Init(void)
+{
+    FL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    GPIO_InitStruct.pin           = FL_GPIO_PIN_8;
+    GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
+    GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
+    GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
+    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON0;
+    GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
+    (void)FL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    FL_GPIO_ResetOutputPin(GPIOB, FL_GPIO_PIN_8);
+    FL_DelayMs(10);
+    FL_GPIO_SetOutputPin(GPIOB, FL_GPIO_PIN_8);
+}
+
 int main(void)
 {   
     /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -48,11 +66,13 @@ int main(void)
     MF_Config_Init();
 
     QSpiInit();
-    AXS15231_QSPI_Init();  
+    LCD_NRST_Init();
+    AXS15231_QSPI_Init();
+    AXS15231_ResetAndInit();
 
-   
+
     AXS15231_SetWindow(0, 0, 239, 319);
-    AXS15231_FillRed(240 * 320);
+    AXS15231_FillColor(AXS15231_RED, 240 * 320);
 
 //    FM25QxxEnable_QE();
 //    FM25QxxInit_QPI();

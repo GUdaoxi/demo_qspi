@@ -3,30 +3,21 @@
 // QSPI_nCS：PC8  || PB2
 // QSPI_CLK：PC9  || PB3
 // QSPI_DQ0：PC10 || PB10
-// QSPI_DQ1：PC11 || PB11
-// QSPI_DQ2：PC12 || PB12
-// QSPI_DQ3：PC13 || PB13
+// (Single-line mode uses only DQ0)
 
 void QSpiInit(void)
 {
     FL_GPIO_InitTypeDef    GPIO_InitStruct={0};
     QSPI_InitTypeDef       QSPI_Init={0};
     
-    GPIO_InitStruct.pin           = FL_GPIO_PIN_8|FL_GPIO_PIN_9|FL_GPIO_PIN_12|FL_GPIO_PIN_13;
+    /* Use CS and CLK pins only for single-line operation */
+    GPIO_InitStruct.pin           = FL_GPIO_PIN_8 | FL_GPIO_PIN_9;
     GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
     GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
     GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
     GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON2;
     GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
     (void)FL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-    
-    GPIO_InitStruct.pin           = FL_GPIO_PIN_11;
-    GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;
-    GPIO_InitStruct.outputType    = FL_GPIO_OUTPUT_PUSHPULL;
-    GPIO_InitStruct.pull          = FL_GPIO_BOTH_DISABLE;
-    GPIO_InitStruct.remapPin      = FL_GPIO_PINREMAP_FUNCTON2;
-    GPIO_InitStruct.driveStrength = FL_GPIO_DRIVESTRENGTH_X3;
-    (void)FL_GPIO_Init(GPIOB, &GPIO_InitStruct);    
     
     GPIO_InitStruct.pin           = FL_GPIO_PIN_10;
     GPIO_InitStruct.mode          = FL_GPIO_MODE_DIGITAL;

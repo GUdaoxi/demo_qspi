@@ -101,7 +101,7 @@ __USED static uint32_t QSPI_DR_ReadWord(void)
 
 bool QSpiWriteData(QSPI_CmdTypeDef *Cmd, uint8_t *data, uint16_t length)
 {
-      FL_QSPI_EnableABORT(QSPI);     //终止传输
+      FL_QSPI_EnableABORT(QSPI);     
     
     /* 配置传输数据长度 */
     FL_QSPI_WriteDataLength(QSPI, Cmd->DataLen - 1);    

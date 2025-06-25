@@ -3,14 +3,7 @@
 #include "main.h"
 #include <stdint.h>
 
-#define AXS15231_CMD_WRITE_DATA      0x2C
-#define AXS15231_CMD_SET_COLUMN      0x2A
-#define AXS15231_CMD_SET_PAGE        0x2B
-#define AXS15231_RED                 0xF800
-#define AXS15231_GREEN               0x07E0
-#define AXS15231_BLUE                0x001F
-#define AXS15231_CMD_WRITE_DATA_DUAL 0x12
-#define AXS15231_CMD_WRITE_DATA_SINGLE 0x02
+
 
 #define TFT_CS_H()    FL_GPIO_SetOutputPin(GPIOC, FL_GPIO_PIN_8)
 #define TFT_CS_L()    FL_GPIO_ResetOutputPin(GPIOC, FL_GPIO_PIN_8)
@@ -109,11 +102,6 @@ void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
 //        buffer[i] = AXS15231_RED >> 8;
 //        buffer[i+1] = AXS15231_RED & 0xFF;
 //    }
-//
-//    // 替代写法：单指令模式已失败，可尝试如下整合方式
-//    // AXS15231_WriteCommand(AXS15231_CMD_WRITE_DATA);
-//    // ... 分段 QSPI_WriteDataStream ...
-//
 //    uint32_t bytes = count * 2;
 //    while (bytes > 0) {
 //        uint32_t chunk = (bytes > sizeof(buffer)) ? sizeof(buffer) : bytes;
@@ -138,4 +126,47 @@ void AXS15231_FillRed(uint32_t count)
         AXS15231_WriteDataBlock(AXS15231_CMD_WRITE_DATA, buffer, chunk);
         bytes -= chunk;
     }
+}
+void AXS15231_FillColor(uint16_t color, uint32_t count)
+{
+    uint8_t hi = color >> 8;
+    uint8_t lo = color & 0xFF;
+    for (uint32_t i = 0; i < count; i++) {
+        AXS15231_WriteData(hi);
+        AXS15231_WriteData(lo);
+    }
+}
+
+void AXS15231_ResetAndInit(void)
+{
+    /* Sleep out */
+    AXS15231_WriteCommand(0x11);
+    FL_DelayMs(20);
+
+    /* Partial init sequence translated from SPI example */
+    AXS15231_WriteCommand(0xF0); AXS15231_WriteData(0x28);
+    AXS15231_WriteCommand(0xF2); AXS15231_WriteData(0x28);
+    AXS15231_WriteCommand(0x7C); AXS15231_WriteData(0xD1);
+    AXS15231_WriteCommand(0x83); AXS15231_WriteData(0xE0);
+    AXS15231_WriteCommand(0x84); AXS15231_WriteData(0x61);
+    AXS15231_WriteCommand(0xF2); AXS15231_WriteData(0x82);
+    AXS15231_WriteCommand(0xF0); AXS15231_WriteData(0x00);
+    AXS15231_WriteCommand(0xF0); AXS15231_WriteData(0x01);
+    AXS15231_WriteCommand(0xF1); AXS15231_WriteData(0x01);
+
+    AXS15231_WriteCommand(0xB0); AXS15231_WriteData(0x49);
+    AXS15231_WriteCommand(0xB1); AXS15231_WriteData(0x4A);
+    AXS15231_WriteCommand(0xB2); AXS15231_WriteData(0x1F);
+    AXS15231_WriteCommand(0xB4); AXS15231_WriteData(0x46);
+    AXS15231_WriteCommand(0xB5); AXS15231_WriteData(0x34);
+    AXS15231_WriteCommand(0xB6); AXS15231_WriteData(0xD5);
+    AXS15231_WriteCommand(0xB7); AXS15231_WriteData(0x30);
+    AXS15231_WriteCommand(0xB8); AXS15231_WriteData(0x04);
+    AXS15231_WriteCommand(0xBA); AXS15231_WriteData(0x00);
+    AXS15231_WriteCommand(0xBB); AXS15231_WriteData(0x08);
+    AXS15231_WriteCommand(0xBC); AXS15231_WriteData(0x08);
+    AXS15231_WriteCommand(0xBD); AXS15231_WriteData(0x00);
+
+    AXS15231_WriteCommand(0x3A); AXS15231_WriteData(0x55); /* 16-bit */
+    AXS15231_WriteCommand(0x29);                         /* display on */
 }

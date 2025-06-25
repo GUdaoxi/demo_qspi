@@ -30,8 +30,8 @@ int main(void)
     AXS15231_WriteCommand(TFT_CMD_DISPON);
     
     AXS15231_SetWindow(0, 0, 639, 639);
-    AXS15231_FillRed(640 * 640);
-
+  //  AXS15231_FillRed(640 * 640);
+    AXS15231_FillColor(AXS15231_RED, 240 * 320);
 
 
     while(1)

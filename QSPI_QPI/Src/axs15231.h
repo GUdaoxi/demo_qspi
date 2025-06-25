@@ -37,4 +37,10 @@ void AXS15231_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 // Fill a number of pixels with red (count = width*height)
 void AXS15231_FillRed(uint32_t count);
 
+// Fill with an arbitrary RGB565 color
+void AXS15231_FillColor(uint16_t color, uint32_t count);
+
+// Send an initialization sequence similar to the SPI example
+void AXS15231_ResetAndInit(void);
+
 #endif  
